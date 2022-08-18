@@ -26,4 +26,5 @@ Route::post('login', [UserController::class, 'authenticate']);
 Route::middleware(['auth:sanctum'])->group(function() {
     Route::apiResource('ip', IpAddressController::class)->only('store', 'update');;
     Route::apiResource('log', AuditTrailController::class)->only('index');
+    Route::get('me', [UserController::class, 'getAuth'])->name('me');
 });

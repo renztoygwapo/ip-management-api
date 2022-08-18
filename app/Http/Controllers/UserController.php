@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Domain\Authentication\Data\LoginData;
 use Domain\Authentication\Actions\LoginAction;
 
@@ -13,15 +14,9 @@ class UserController extends Controller
         return resolve(LoginAction::class)($data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function getAuth()
     {
-        //
+        return Auth::user();
     }
 
     /**
