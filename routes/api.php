@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditTrailController;
 use App\Http\Controllers\IpAddressController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,5 @@ Route::post('login', [UserController::class, 'authenticate']);
 
 Route::middleware(['auth:sanctum'])->group(function() {
     Route::apiResource('ip', IpAddressController::class);
+    Route::apiResource('log', AuditTrailController::class)->only('index');
 });
