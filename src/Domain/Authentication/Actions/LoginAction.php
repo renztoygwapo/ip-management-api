@@ -20,6 +20,14 @@ class LoginAction
                 'error' => ['The provided credentials are incorrect.'],
             ]);
         }
+
+        // audit trail
+        activity()
+        ->performedOn($user)
+        ->event('login')
+        ->log('new user login ' .$user->email);
+
+
         return $this->responseWithToken($user, ['message' => 'User authenticated']);
         } catch (\Exception $exception) {
             throw $exception;

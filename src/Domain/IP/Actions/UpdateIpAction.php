@@ -5,7 +5,7 @@ use Exception;
 use App\Models\IpAddress;
 use Domain\IP\Data\IpData;
 use Domain\IP\Data\Request\UpdateIpRequest;
-
+use Illuminate\Support\Facades\Auth;
 
 class UpdateIpAction {
 
@@ -16,8 +16,15 @@ class UpdateIpAction {
         $item->label = $data->label;
         $item->save();
 
-        return $item;
-        
+        // audit trail
+        activity()
+        ->causedBy(Auth::user())
+        ->performedOn($item)
+        ->event('update')
+        ->log('The user was update the ip from ' .$item->label. ' to ' .$data->label);
+
+        return IpData::from($item);
+
         } catch (Exception $e) {
             throw $e;
         }
