@@ -17,6 +17,12 @@ Login
     - method: post<br />
     - parameters: email, password<br />
 
+
+Get Profile
+    - api: /api/me <br />
+    - method: GET <br />
+    - params: (optional) <br />
+
 Create New IP Address:
     - api : /api/ip<br />
     - method: POST<br />
