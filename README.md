@@ -28,6 +28,11 @@ Get IP Addresses:
     - method: GET <br />
     - params: (optional)<br />
 
+Get IP Addresses BY ID:
+    - api : /api/ip/{id}<br />
+    - method: GET <br />
+    - params: (optional)<br />
+
 Create New IP Address:
     - api : /api/ip<br />
     - method: POST<br />

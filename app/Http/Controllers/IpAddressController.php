@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Domain\IP\Data\IpData;
 use Illuminate\Http\Request;
-use Domain\IP\Actions\CreateNewIpAction;
-use Domain\IP\Actions\GetListIpAction;
+use Domain\IP\Actions\ShowIpAction;
 use Domain\IP\Actions\UpdateIpAction;
+use Domain\IP\Actions\GetListIpAction;
+use Domain\IP\Actions\CreateNewIpAction;
 use Domain\IP\Data\Request\UpdateIpRequest;
 
 class IpAddressController extends Controller
@@ -40,7 +41,7 @@ class IpAddressController extends Controller
      */
     public function show($id)
     {
-        //
+        return resolve(ShowIpAction::class)($id);
     }
 
     /**
