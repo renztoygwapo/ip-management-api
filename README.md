@@ -1,3 +1,14 @@
+## Setting Up
+    - clone the repo
+    - composer install
+    - cp .env.example .env
+    - php artisan config:cache
+    - php artisan migrate
+    - php artisan db:seed
+
+## Credentials
+    - email: test@example.com
+    - password: 123456
 
 ## API ROUTES
 
