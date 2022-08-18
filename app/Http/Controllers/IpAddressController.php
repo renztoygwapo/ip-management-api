@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Domain\IP\Data\IpData;
 use Illuminate\Http\Request;
 use Domain\IP\Actions\CreateNewIpAction;
+use Domain\IP\Actions\GetListIpAction;
 use Domain\IP\Actions\UpdateIpAction;
 use Domain\IP\Data\Request\UpdateIpRequest;
 
@@ -17,7 +18,7 @@ class IpAddressController extends Controller
      */
     public function index()
     {
-        //
+        return resolve(GetListIpAction::class)();
     }
 
     /**
